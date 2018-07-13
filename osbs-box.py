@@ -12,7 +12,7 @@ DIRECTORIES = ['base', 'client', 'koji-db', 'hub', 'koji-builder', 'shared-data'
 SERVICES = ['shared-data', 'koji-db', 'koji-hub', 'koji-builder', 'koji-client']
 LOCAL_REGISTRY = '172.17.0.1:5000'
 AUTO_PULL_IMAGES = {
-    'registry.fedoraproject.org/fedora:latest': 'fedora:latest'
+    'fedora:latest': 'fedora:latest'
 }
 dir_path = os.path.basename(os.path.dirname(os.path.realpath(__file__))).replace('-', '')
 
@@ -88,6 +88,10 @@ def _wait_until_string_is_in_logs(container, str_to_find):
 
 def _wait_until_openshift_is_up():
     cmd = ['oc', 'cluster', 'status']
+
+    sleep(30)
+
+    return
 
     print("Waiting for OpenShift cluster to be up")
     for _ in range(90):

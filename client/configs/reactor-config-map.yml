@@ -28,8 +28,8 @@ openshift:
     enable: True
 
 platform_descriptors:
-- platform: x86_64
-  architecture: amd64
+- platform: ppc64le
+  architecture: ppc64le
   enable_v1: True
 
 content_versions:

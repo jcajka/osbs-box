@@ -2,8 +2,8 @@
 set -xeuo pipefail
 
 # TODO: Just create directly in DB?
-koji add-tag build --arches=x86_64
-koji add-tag dest --arches=x86_64
+koji add-tag build --arches=`uname -p`
+koji add-tag dest --arches=`uname -p`
 koji add-target candidate build dest
 
 koji add-pkg dest osbs-buildroot-docker --owner kojiadmin
